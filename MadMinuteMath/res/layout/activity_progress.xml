@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#68A8AD"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    >
+    <com.hsi.madminutemath.RobotoTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:text="Progress"/>
+    <com.hsi.madminutemath.RobotoButton 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reset"
+        android:text="Reset"
+        android:onClick="reset"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        />
+    <com.hsi.madminutemath.RobotoButton 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_main"
+        android:text="Main"
+        android:onClick="toMain"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        />
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+ android:layout_below="@id/reset"
+ android:id="@+id/rowLabel"
+        android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+    android:weightSum="5" >
+    <com.hsi.madminutemath.RobotoTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:text="Correct"
+        />
+    <com.hsi.madminutemath.RobotoTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+                android:gravity="center"
+        
+                android:textSize="12sp"
+        android:text="Accuracy"/>
+    <com.hsi.madminutemath.RobotoTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+                android:gravity="center"
+        
+        android:layout_weight="1"
+                android:textSize="12sp"
+        
+        android:text="Difficulty"/>
+    <com.hsi.madminutemath.RobotoTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+                android:gravity="center"
+        
+        android:layout_weight="1"
+                android:textSize="12sp"
+        
+        android:text="Mode"/>
+    <com.hsi.madminutemath.RobotoTextView
+        android:layout_width="0dp"
+                android:gravity="center"
+        
+        android:layout_height="wrap_content"
+                android:textSize="12sp"
+        
+        android:layout_weight="1"
+        android:text="Score"/>
+    
+    
+    
+    
+
+</LinearLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressList"
+        android:layout_below="@id/rowLabel"
+        android:layout_centerHorizontal="true"/>
+    <com.hsi.madminutemath.RobotoTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/noProgress"
+        android:text="No Progress"
+        android:visibility="gone"/>
+    
+
+</RelativeLayout>

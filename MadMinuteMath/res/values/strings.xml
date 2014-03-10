@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Mad Minute Math</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="play">Play</string>
+    <string name="mode">Mode</string>
+    <string name="progress">Progress</string>
+    <string name="settings">Settings</string>
+    <string name="quit">Quit</string>
+    <string name="mad">Mad</string>
+    <string name="minute">Minute</string>
+    <string name="dash">Math</string>
+    <string name="title_activity_play">PlayActivity</string>
+    <string name="dummy_RobotoButton">Dummy RobotoButton</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="completed">Correct</string>
+    <string name="accuracy">Accuracy</string>
+    <string name="results">Results</string>
+    <string name="title_activity_review">ReviewActivity</string>
+    <string name="submit">Submit To Leaderboards</string>
+    <string name="title_activity_mode">ModeActivity</string>
+  <string name="app_id">951531537273</string>
+  <string name="leaderboard_addition">CgkI-YbM3dgbEAIQCA</string>
+  <string name="leaderboard_subtraction">CgkI-YbM3dgbEAIQCQ</string>
+  <string name="leaderboard_multiplication">CgkI-YbM3dgbEAIQCg</string>
+  <string name="leaderboard_division">CgkI-YbM3dgbEAIQCw</string>
+  <string name="leaderboard_mixed">CgkI-YbM3dgbEAIQDA</string>
+</resources>

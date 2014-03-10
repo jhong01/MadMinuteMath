@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#68A8AD"
+    tools:context=".ResultsActivity" >
+    <com.hsi.madminutemath.RobotoButton  
+        android:id="@+id/mainMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:text="Main menu"
+        android:onClick="toMain"/>
+    
+
+    <com.hsi.madminutemath.RobotoTextView
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/resultsText"
+        android:text="@string/results"
+        android:background="@drawable/textlines" />
+    <com.hsi.madminutemath.RobotoTextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numCorrect"
+        android:textSize="15sp"
+                android:layout_marginTop="10dp"
+        
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/resultsText"/>
+    <com.hsi.madminutemath.RobotoTextView 
+        android:layout_width="wrap_content"
+        android:textSize="15sp"
+                android:layout_marginTop="10dp"
+        
+        android:layout_height="wrap_content"
+        android:id="@+id/accuracyPerc"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/numCorrect"/>
+    <com.hsi.madminutemath.RobotoButton 
+        android:id="@+id/progressButton "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/accuracyPerc"
+                android:layout_marginTop="10dp"
+        android:onClick="progress"
+        android:text="@string/progress"/>
+    <com.hsi.madminutemath.RobotoButton 
+        android:id="@+id/submit"
+                android:layout_marginTop="10dp"
+        android:onClick="submit"
+        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/progressButton "
+        android:text="@string/submit"/>
+    <com.hsi.madminutemath.RobotoTextView 
+        android:id="@+id/review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+        
+        android:layout_below="@id/submit"
+        android:textSize="20sp"/>
+    <com.hsi.madminutemath.RobotoTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reviewText"
+        android:text="Review mistakes:"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/review"/>
+    
+    <ListView
+        android:id="@+id/reviewList"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+        
+        android:layout_below="@id/reviewText"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<resources>
+
+    <!--
+         Declare custom theme attributes that allow changing which styles are
+         used for RobotoButton bars depending on the API level.
+         ?android:attr/RobotoButtonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels.
+    -->
+    <declare-styleable name="RobotoButtonBarContainerTheme">
+        <attr name="RobotoButtonBarStyle" format="reference" />
+        <attr name="RobotoButtonBarRobotoButtonStyle" format="reference" />
+    </declare-styleable>
+
+</resources>
