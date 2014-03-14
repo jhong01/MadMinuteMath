@@ -1,0 +1,127 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/gradient"
+    tools:context=".MainActivity" >
+
+    <com.hsi.madminutemath.RobotoItalicText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:textSize="40sp"
+        android:text="@string/mad"
+        android:id="@+id/mad"
+        />
+    <com.hsi.madminutemath.RobotoItalicText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mad"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textSize="40sp"
+        android:text="@string/minute"
+        android:id="@+id/minute"
+        />
+    <com.hsi.madminutemath.RobotoItalicText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/minute"
+                android:layout_centerHorizontal="true"
+        
+        android:layout_marginTop="5dp"
+        android:textSize="40sp"
+        android:text="@string/dash"
+        android:id="@+id/dash"
+        />
+         <com.hsi.madminutemath.RobotoButton 
+             android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+             
+             android:id="@+id/play"
+             android:text="@string/start"
+                          android:textSize="20sp"
+android:background="@drawable/button_gradient"
+
+             android:onClick="play"
+             android:layout_centerHorizontal="true"
+             android:layout_below="@id/dash"
+             android:layout_marginTop="20dp"/>
+          
+           
+        <com.hsi.madminutemath.RobotoButton  
+            
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/settings"
+             android:text="@string/settings"
+android:background="@drawable/button_gradient"
+			android:onClick="settings"
+             
+                          android:textSize="20sp"
+             
+             android:layout_centerHorizontal="true"
+             android:layout_below="@id/play"
+             android:layout_marginTop="8dp"/>
+         <com.hsi.madminutemath.RobotoButton  
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/progress"
+             android:text="@string/progress"
+android:background="@drawable/button_gradient"
+			android:onClick="progress"
+             
+             android:layout_centerHorizontal="true"
+             android:layout_below="@id/settings"
+                          android:textSize="20sp"
+             
+             android:layout_marginTop="8dp"/>
+        <com.hsi.madminutemath.RobotoButton  
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+android:background="@drawable/button_gradient"
+			android:onClick="scores"
+             
+             android:id="@+id/scores"
+             android:text="@string/leaderboards"
+                          android:textSize="20sp"
+             
+             android:layout_centerHorizontal="true"
+             android:layout_below="@id/progress"
+             android:layout_marginTop="8dp"/>
+         <com.hsi.madminutemath.RobotoButton  
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+android:background="#07000000"
+
+             android:onClick="quit"
+             android:id="@+id/quit"
+             android:text="@string/quit"
+                          android:textSize="20sp"
+             
+             android:layout_centerHorizontal="true"
+             android:layout_below="@id/scores"
+             android:layout_marginTop="8dp"/>
+		
+         <ImageButton 
+             android:layout_width="30dp"
+             android:layout_height="30dp"
+             android:layout_alignParentTop="true"
+             android:layout_alignParentRight="true"
+             android:id="@+id/mute"
+             android:background="@drawable/ic_action_volume_muted"/>
+         <ImageButton
+             android:layout_width="30dp"
+             android:layout_height="30dp"
+             android:layout_alignParentBottom="true"
+             android:layout_alignParentRight="true"
+             android:background="@drawable/ic_action_about"
+             android:onClick="about"/>
+         
+           
+</RelativeLayout>

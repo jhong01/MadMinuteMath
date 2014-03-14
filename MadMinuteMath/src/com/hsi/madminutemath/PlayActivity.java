@@ -3,18 +3,20 @@ package com.hsi.madminutemath;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 
-import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.view.KeyEvent;
 import android.view.View;
@@ -41,6 +43,7 @@ public class PlayActivity extends Activity {
 	 * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
 	 */
 	private static final boolean AUTO_HIDE = true;
+	private static final int HIDER_FLAGS = 0;// SystemUiHider.FLAG_HIDE_NAVIGATION;
 
 	/**
 	 * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
@@ -57,11 +60,12 @@ public class PlayActivity extends Activity {
 	/**
 	 * The flags to pass to {@link SystemUiHider#getInstance}.
 	 */
-	private static final int HIDER_FLAGS = SystemUiHider.FLAG_HIDE_NAVIGATION;
 
 	/**
 	 * The instance of the {@link SystemUiHider} for this activity.
 	 */
+	
+	int iTmp;
 	private SystemUiHider mSystemUiHider;
 	RobotoTextView countdown, answer, firstNum, secondNum, accuracyText,
 			completedText, seconds;
@@ -73,19 +77,20 @@ public class PlayActivity extends Activity {
 	Runnable runnable1, runnable2, runnable3, runnable4;
 	private ObjectAnimator mProgressBarAnimator;
 	GridLayout grid;
-
+SoundPool sp;
 	int correctCount = 0;
 	int totalCount = 0;
 	float accuracyPerc = 100;
 	Handler handler;
 	MySQLiteHelper helper;
 	Animation animFadein;
-
+Vibrator myVib;
 	RelativeLayout bigdaddy;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		requestWindowFeature(Window.FEATURE_ACTION_BAR);
+	    getActionBar().hide();      
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_play);
@@ -96,6 +101,8 @@ public class PlayActivity extends Activity {
 		relLayout = (RelativeLayout) findViewById(R.id.mathRelative);
 		accuracyText = (RobotoTextView) findViewById(R.id.accuracyText);
 		completedText = (RobotoTextView) findViewById(R.id.completedText);
+	    myVib = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
+
 		seconds = (RobotoTextView) findViewById(R.id.seconds);
 		grid = (GridLayout) findViewById(R.id.grid);
 		progress = (HoloCircularProgressBar) findViewById(R.id.clock);
@@ -110,7 +117,30 @@ public class PlayActivity extends Activity {
 		math = new Operation(this);
 		bigdaddy = (RelativeLayout)findViewById(R.id.bigdaddy);
 		
+		
+		 sp = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
 
+		iTmp = sp.load(this, R.raw.correct, 1); // in 2nd param u have to pass your desire ringtone
+
+
+		
+
+	}
+
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+
+    	if(cdt != null){
+    	cdt.cancel();
+    	}
+    	handler.removeCallbacks(runnable1);
+    	handler.removeCallbacks(runnable2);
+    	handler.removeCallbacks(runnable3);
+
+    	
+        finish();
 	}
 
 	@Override
@@ -174,7 +204,7 @@ public class PlayActivity extends Activity {
 				});
 				colorAnimation.setDuration(60000);
 				colorAnimation.start();*/
-				 cdt = new CountDownTimer(64000, 1000) {
+				 cdt = new CountDownTimer(61000, 1000) {
 
 					public void onTick(long millisUntilFinished) {
 						// mTextField.setText("seconds remaining: " +
@@ -250,6 +280,7 @@ public class PlayActivity extends Activity {
 							Intent toResults = new Intent(PlayActivity.this,
 									ResultsActivity.class);
 							toResults.putExtra("adjusted", intAdjusted);
+							
 							toResults.putExtra("sendString", sendString);
 							startActivity(toResults);
 							finish();
@@ -281,31 +312,31 @@ public class PlayActivity extends Activity {
 		StringBuilder sb = new StringBuilder();
 		if (operation == 1) {
 			if (firstLength-secondLength == 2){
-				op = "+   ";
+				op = "+    ";
 			}
 			else{
-			op = "+  ";
+			op = "+   ";
 			}
 		} else if (operation == 2) {
 			if (firstLength-secondLength == 2){
-				op = "-   ";
+				op = "-    ";
 			}
 			else{
-			op = "-  ";
+			op = "-   ";
 			}
 		} else if (operation == 3) {
 			if (firstLength-secondLength == 2){
-				op = "x   ";
+				op = "x    ";
 			}
 			else{
-			op = "x  ";
+			op = "x   ";
 			}
 		} else if (operation == 4) {
 			if (firstLength-secondLength == 2){
-				op = "÷   ";
+				op = "÷    ";
 			}
 			else{
-			op = "÷  ";
+			op = "÷   ";
 			}
 		}
 		sb.append(op);
@@ -332,53 +363,84 @@ public class PlayActivity extends Activity {
 
 	public void one(View v) {
 		String cur = answer.getText().toString();
-		answer.setText(cur + "1");
+		if (cur.length() > 6){
+		}
+		else{
+			answer.setText(cur + "1");
+		}
 	}
 
 	public void two(View v) {
 		String cur = answer.getText().toString();
-		answer.setText(cur + "2");
-	}
+		if (cur.length() > 6){
+		}
+		else{
+			answer.setText(cur + "2");
+		}	}
 
 	public void three(View v) {
 		String cur = answer.getText().toString();
-		answer.setText(cur + "3");
-	}
+		if (cur.length() > 6){
+		}
+		else{
+			answer.setText(cur + "3");
+		}	}
 
 	public void four(View v) {
 		String cur = answer.getText().toString();
-		answer.setText(cur + "4");
-	}
+		if (cur.length() > 6){
+		}
+		else{
+			answer.setText(cur + "4");
+		}	}
 
 	public void five(View v) {
 		String cur = answer.getText().toString();
-		answer.setText(cur + "5");
-	}
+		if (cur.length() > 6){
+		}
+		else{
+			answer.setText(cur + "5");
+		}	}
 
 	public void six(View v) {
 		String cur = answer.getText().toString();
-		answer.setText(cur + "6");
-	}
+		if (cur.length() > 6){
+		}
+		else{
+			answer.setText(cur + "6");
+		}	}
 
 	public void seven(View v) {
 		String cur = answer.getText().toString();
-		answer.setText(cur + "7");
-	}
+		if (cur.length() > 6){
+		}
+		else{
+			answer.setText(cur + "7");
+		}	}
 
 	public void eight(View v) {
 		String cur = answer.getText().toString();
-		answer.setText(cur + "8");
-	}
+		if (cur.length() > 6){
+		}
+		else{
+			answer.setText(cur + "8");
+		}	}
 
 	public void nine(View v) {
 		String cur = answer.getText().toString();
-		answer.setText(cur + "9");
-	}
+		if (cur.length() > 6){
+		}
+		else{
+			answer.setText(cur + "9");
+		}	}
 
 	public void zero(View v) {
 		String cur = answer.getText().toString();
-		answer.setText(cur + "0");
-	}
+		if (cur.length() > 6){
+		}
+		else{
+			answer.setText(cur + "0");
+		}	}
 
 	public void clear(View v) {
 		answer.setText("");
@@ -389,9 +451,13 @@ public class PlayActivity extends Activity {
 		totalCount++;
 		if (correct) {
 			correctCount++;
+			sp.play(iTmp, .5f, .5f, 0, 0, 1f);
+
 		} else {
 			Review review = new Review(first, second, ans, operation);
 			helper.addReview(review);
+			myVib.vibrate(50);
+			
 		}
 		setUpNumbers();
 		float divide = (float) correctCount / totalCount;

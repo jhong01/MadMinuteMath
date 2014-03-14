@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/bigdaddy"
-    android:background="#68A8AD"
+    android:background="@drawable/gradient"
      >
 
     <LinearLayout
@@ -116,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/container"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/textlines"
+        android:background="@drawable/botline"
         android:visibility="gone" >
 
 

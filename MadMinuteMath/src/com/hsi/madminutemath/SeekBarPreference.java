@@ -48,7 +48,8 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 		//mSeekBar.set(0xFFFFFFFF);
 		mSeekBar.setMax(mMaxValue - mMinValue);
 		mSeekBar.setOnSeekBarChangeListener(this);
-		
+		mSeekBar.setProgressDrawable(context.getResources().getDrawable(R.drawable.progress));
+		mSeekBar.setThumb(context.getResources().getDrawable(R.drawable.apptheme_scrubber_control_normal_holo));
 		setWidgetLayoutResource(R.layout.seek_bar_preference);
 	}
 	

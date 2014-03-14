@@ -7,9 +7,14 @@
     <string name="play">Play</string>
     <string name="mode">Mode</string>
     <string name="progress">Progress</string>
+    <string name="start">Start</string>
+    <string name="leaderboards">Leaderboards</string>
     <string name="settings">Settings</string>
     <string name="quit">Quit</string>
+    <string name="difficulty">Difficulty</string>
     <string name="mad">Mad</string>
+    <string name="score">Score</string>
+    <string name="noprogress">No Progress</string>
     <string name="minute">Minute</string>
     <string name="dash">Math</string>
     <string name="title_activity_play">PlayActivity</string>
@@ -21,10 +26,11 @@
     <string name="title_activity_review">ReviewActivity</string>
     <string name="submit">Submit To Leaderboards</string>
     <string name="title_activity_mode">ModeActivity</string>
-  <string name="app_id">951531537273</string>
-  <string name="leaderboard_addition">CgkI-YbM3dgbEAIQCA</string>
-  <string name="leaderboard_subtraction">CgkI-YbM3dgbEAIQCQ</string>
-  <string name="leaderboard_multiplication">CgkI-YbM3dgbEAIQCg</string>
-  <string name="leaderboard_division">CgkI-YbM3dgbEAIQCw</string>
-  <string name="leaderboard_mixed">CgkI-YbM3dgbEAIQDA</string>
+  <string name="app_id">63958136041</string>
+  <string name="leaderboard_addition">CgkI6enOoe4BEAIQAQ</string>
+  <string name="leaderboard_subtraction">CgkI6enOoe4BEAIQAg</string>
+  <string name="leaderboard_multiplication">CgkI6enOoe4BEAIQAw</string>
+  <string name="leaderboard_division">CgkI6enOoe4BEAIQBA</string>
+  <string name="leaderboard_mixed">CgkI6enOoe4BEAIQBQ</string>
+
 </resources>

@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#68A8AD"
+    android:background="@drawable/gradient"
     tools:context=".MainActivity" >
 
     <com.hsi.madminutemath.RobotoItalicText
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:textSize="50sp"
+        android:textSize="60sp"
         android:text="@string/mad"
         android:id="@+id/mad"
         />
@@ -24,7 +24,7 @@
         android:layout_below="@id/mad"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:textSize="50sp"
+        android:textSize="60sp"
         android:text="@string/minute"
         android:id="@+id/minute"
         />
@@ -35,7 +35,7 @@
                 android:layout_centerHorizontal="true"
         
         android:layout_marginTop="5dp"
-        android:textSize="50sp"
+        android:textSize="60sp"
         android:text="@string/dash"
         android:id="@+id/dash"
         />
@@ -44,9 +44,9 @@
                      android:layout_height="wrap_content"
              
              android:id="@+id/play"
-             android:text="Start"
-                          android:textSize="20sp"
-             android:background="@android:color/transparent"
+             android:text="@string/start"
+                          android:textSize="30sp"
+android:background="@drawable/button_gradient"
 
              android:onClick="play"
              android:layout_centerHorizontal="true"
@@ -59,11 +59,11 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:id="@+id/settings"
-             android:text="Settings"
-             android:background="@android:color/transparent"
+             android:text="@string/settings"
+android:background="@drawable/button_gradient"
 			android:onClick="settings"
              
-                          android:textSize="20sp"
+                          android:textSize="30sp"
              
              android:layout_centerHorizontal="true"
              android:layout_below="@id/play"
@@ -73,23 +73,23 @@
              android:layout_height="wrap_content"
              android:id="@+id/progress"
              android:text="@string/progress"
-             android:background="@android:color/transparent"
+android:background="@drawable/button_gradient"
 			android:onClick="progress"
              
              android:layout_centerHorizontal="true"
              android:layout_below="@id/settings"
-                          android:textSize="20sp"
+                          android:textSize="30sp"
              
              android:layout_marginTop="10dp"/>
         <com.hsi.madminutemath.RobotoButton  
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:background="@android:color/transparent"
+android:background="@drawable/button_gradient"
 			android:onClick="scores"
              
              android:id="@+id/scores"
-             android:text="Leaderboards"
-                          android:textSize="20sp"
+             android:text="@string/leaderboards"
+                          android:textSize="30sp"
              
              android:layout_centerHorizontal="true"
              android:layout_below="@id/progress"
@@ -97,17 +97,31 @@
          <com.hsi.madminutemath.RobotoButton  
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:background="@android:color/transparent"
+android:background="#07000000"
 
              android:onClick="quit"
              android:id="@+id/quit"
              android:text="@string/quit"
-                          android:textSize="20sp"
+                          android:textSize="30sp"
              
              android:layout_centerHorizontal="true"
              android:layout_below="@id/scores"
              android:layout_marginTop="10dp"/>
-
+		
+         <ImageButton 
+             android:layout_width="30dp"
+             android:layout_height="30dp"
+             android:layout_alignParentTop="true"
+             android:layout_alignParentRight="true"
+             android:id="@+id/mute"
+             android:background="@drawable/ic_action_volume_muted"/>
+         <ImageButton
+             android:layout_width="30dp"
+             android:layout_height="30dp"
+             android:layout_alignParentBottom="true"
+             android:layout_alignParentRight="true"
+             android:background="@drawable/ic_action_about"
+             android:onClick="about"/>
          
-         
+           
 </RelativeLayout>

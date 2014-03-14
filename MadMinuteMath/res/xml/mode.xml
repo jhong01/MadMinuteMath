@@ -8,19 +8,26 @@
                 android:key="addition"
                 android:title="Addition"
                 android:defaultValue="true"
+                android:widgetLayout="@layout/custom_checkbox"
                 android:id="@+id/check1"
                  />
           <com.hsi.madminutemath.MyCheckBoxPreference
                 android:key="subtraction"
+                android:widgetLayout="@layout/custom_checkbox"
+
                 android:title="Subtraction"
                 />
           <com.hsi.madminutemath.MyCheckBoxPreference
                 android:key="multiplication"
+                                android:widgetLayout="@layout/custom_checkbox"
+                
                 android:title="Multiplication"
                />
           <com.hsi.madminutemath.MyCheckBoxPreference
                 android:key="division"
                 android:title="Division"
+                                android:widgetLayout="@layout/custom_checkbox"
+                
                 />
           </com.hsi.madminutemath.MyPreferenceCategory>
           <com.hsi.madminutemath.MyPreferenceCategory 

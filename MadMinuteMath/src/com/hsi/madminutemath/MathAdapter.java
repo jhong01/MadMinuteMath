@@ -2,6 +2,8 @@ package com.hsi.madminutemath;
 
 import java.util.List;
 
+import com.cuubonandroid.sugaredlistanimations.GPlusListAdapter;
+import com.cuubonandroid.sugaredlistanimations.SpeedScrollListener;
 import com.hsi.madminutemath.R;
 
 import android.app.Activity;
@@ -11,21 +13,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
-public class MathAdapter extends ArrayAdapter<Review>{
+public class MathAdapter extends GPlusListAdapter{
+	
+	public MathAdapter(Context context, SpeedScrollListener scrollListener,
+			List<Review> items) {
+		super(context, scrollListener, items);
+		mContext=context;
+		this.objects = items;
+		// TODO Auto-generated constructor stub
+	}
+	public void setResource(int resourceID){
+		this.resourceID = resourceID;
+	}
+
 	Context mContext;
 	int resourceID;
 	List<Review> objects;
-
+/*
 	public MathAdapter(Context context, int layoutResourceID,
 			List<Review> objects) {
 		super(context, layoutResourceID, objects);
 		mContext=context;
 		resourceID = layoutResourceID;
 		this.objects = objects;
-	}
+	}*/
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getRowView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
 		MathHolder holder = null;
 		if(row == null){
@@ -34,7 +48,9 @@ public class MathAdapter extends ArrayAdapter<Review>{
 			holder = new MathHolder();
 			holder.firstNum = (RobotoTextView) row.findViewById(R.id.topNumber2);
 			holder.secondNum = (RobotoTextView) row.findViewById(R.id.botNumber2);
+			
 			holder.answer = (RobotoTextView)row.findViewById(R.id.answer2);
+			holder.answer.setTextColor(mContext.getResources().getColor(android.R.color.holo_red_light));
 			row.setTag(holder);
 		}
 		else{
@@ -49,31 +65,31 @@ public class MathAdapter extends ArrayAdapter<Review>{
 		int operation = review.getOperation();
 		if (operation == 1) {
 			if (firstLength-secondLength == 2){
-				op = "+   ";
+				op = "+    ";
 			}
 			else{
-			op = "+ ";
+			op = "+   ";
 			}
 		} else if (operation == 2) {
 			if (firstLength-secondLength == 2){
-				op = "-   ";
+				op = "-    ";
 			}
 			else{
-			op = "- ";
+			op = "-   ";
 			}
 		} else if (operation == 3) {
 			if (firstLength-secondLength == 2){
-				op = "x   ";
+				op = "x    ";
 			}
 			else{
-			op = "x ";
+			op = "x   ";
 			}
 		} else if (operation == 4) {
 			if (firstLength-secondLength == 2){
-				op = "÷   ";
+				op = "÷    ";
 			}
 			else{
-			op = "÷ ";
+			op = "÷   ";
 			}
 		}
 		sb.append(op);
@@ -87,6 +103,6 @@ public class MathAdapter extends ArrayAdapter<Review>{
 	static class MathHolder{
 		RobotoTextView firstNum, secondNum, answer;
 	}
-	
 
+	
 }

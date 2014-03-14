@@ -10,11 +10,14 @@ import android.view.Window;
 import android.view.WindowManager;
 
 public class SettingsActivity extends Activity {
+	private static final int HIDER_FLAGS = 0;// SystemUiHider.FLAG_HIDE_NAVIGATION;
+
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_ACTION_BAR);
+	    getActionBar().hide();      
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
     	
@@ -41,8 +44,7 @@ public class SettingsActivity extends Activity {
 	        @Override
 	        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 	            View view = super.onCreateView(inflater, container, savedInstanceState);
-	            view.setBackgroundColor(getResources().getColor(R.color.THEME));
-
+	            view.setBackground(getResources().getDrawable(R.drawable.gradient));
 	            return view;
 	        }
 	    }
