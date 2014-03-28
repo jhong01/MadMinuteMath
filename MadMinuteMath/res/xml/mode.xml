@@ -2,44 +2,44 @@
 <PreferenceScreen
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:madminutemath="http://robobunny.com">
-        <com.hsi.madminutemath.MyPreferenceCategory
+        <com.hsi.madminutemath.views.MyPreferenceCategory
             android:title="Mode Selection">
-          <com.hsi.madminutemath.MyCheckBoxPreference
+          <com.hsi.madminutemath.views.MyCheckBoxPreference
                 android:key="addition"
                 android:title="Addition"
                 android:defaultValue="true"
                 android:widgetLayout="@layout/custom_checkbox"
                 android:id="@+id/check1"
                  />
-          <com.hsi.madminutemath.MyCheckBoxPreference
+          <com.hsi.madminutemath.views.MyCheckBoxPreference
                 android:key="subtraction"
                 android:widgetLayout="@layout/custom_checkbox"
 
                 android:title="Subtraction"
                 />
-          <com.hsi.madminutemath.MyCheckBoxPreference
+          <com.hsi.madminutemath.views.MyCheckBoxPreference
                 android:key="multiplication"
                                 android:widgetLayout="@layout/custom_checkbox"
                 
                 android:title="Multiplication"
                />
-          <com.hsi.madminutemath.MyCheckBoxPreference
+          <com.hsi.madminutemath.views.MyCheckBoxPreference
                 android:key="division"
                 android:title="Division"
                                 android:widgetLayout="@layout/custom_checkbox"
                 
                 />
-          </com.hsi.madminutemath.MyPreferenceCategory>
-          <com.hsi.madminutemath.MyPreferenceCategory 
+          </com.hsi.madminutemath.views.MyPreferenceCategory>
+          <com.hsi.madminutemath.views.MyPreferenceCategory 
               android:title="Difficulty">
-        <com.hsi.madminutemath.SeekBarPreference
+        <com.hsi.madminutemath.views.SeekBarPreference
             android:defaultValue="2"
             madminutemath:min="1"
             android:max="4"
             android:key="difficulty">
 
-            	</com.hsi.madminutemath.SeekBarPreference>
-     </com.hsi.madminutemath.MyPreferenceCategory>
+            	</com.hsi.madminutemath.views.SeekBarPreference>
+     </com.hsi.madminutemath.views.MyPreferenceCategory>
           </PreferenceScreen>
           
           

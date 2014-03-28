@@ -27,7 +27,7 @@ public final class R {
 		public static final int scrubber_control_pressed_holo = 0x7f020043;
 	}
 	public static final class id {
-		public static final int action_settings = 0x7f0c0046;
+		public static final int action_settings = 0x7f0c0047;
 	}
 	public static final class menu {
 		public static final int holo_circular_progress_bar = 0x7f0d0000;
