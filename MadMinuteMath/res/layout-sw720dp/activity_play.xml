@@ -1,0 +1,309 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/bigdaddy"
+    android:background="@drawable/gradient"
+     >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/container"
+        android:weightSum="3"
+        android:layout_centerHorizontal="true">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:background="@drawable/dividerthick"
+    android:layout_weight="1"
+    android:id="@+id/completedLayout">
+    <com.hsi.madminutemath.views.RobotoTextView
+        android:id="@+id/completed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/completed"
+                        android:layout_gravity="center"
+        
+        android:textSize="40sp" />
+
+    <com.hsi.madminutemath.views.RobotoTextView
+        android:id="@+id/completedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+                android:layout_gravity="center"
+        android:text="0"
+        android:textSize="40sp" />
+
+    </LinearLayout>
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+        android:background="@drawable/dividerthick"
+    
+    
+    android:layout_weight="1"
+    android:id="@+id/accuracyLayout">
+    <com.hsi.madminutemath.views.RobotoTextView
+        android:id="@+id/accuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/completed"
+        android:layout_alignParentLeft="true"
+        android:text="@string/accuracy"
+                        android:layout_gravity="center"
+        
+        android:textSize="40sp" />
+
+    <com.hsi.madminutemath.views.RobotoTextView
+        android:id="@+id/accuracyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/accuracy"
+        android:layout_below="@id/completedText"
+                android:layout_gravity="center"
+        
+        android:text="100%"
+        android:textSize="40sp" />
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/clockLayout"
+    >
+        
+    <de.passsy.holocircularprogressbar.HoloCircularProgressBar
+    android:id="@+id/clock"
+    android:layout_width="120dp"
+    android:layout_height="120dp"
+    android:layout_centerHorizontal="true"
+    
+    
+    />
+    <com.hsi.madminutemath.views.RobotoTextView
+        android:id="@+id/seconds"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="40sp"
+        android:text="60"/>
+    </RelativeLayout>
+    </LinearLayout>
+
+    <com.hsi.madminutemath.views.RobotoTextView
+        android:id="@+id/countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/container"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="20dp"
+        android:text="3"
+        android:textSize="90sp"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/mathRelative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/container"
+            android:paddingTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/botline"
+        android:visibility="gone" >
+
+
+        <com.hsi.madminutemath.views.RobotoTextView
+            android:id="@+id/topNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/botNumber"
+            android:layout_marginTop="20dp"
+            android:gravity="right"
+            android:text=""
+            android:textSize="80sp" />
+
+        <com.hsi.madminutemath.views.RobotoTextView
+            android:id="@+id/botNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/topNumber"
+            android:layout_marginTop="5dp"
+            android:gravity="right"
+            android:text=""
+            android:textSize="80sp" />
+    </RelativeLayout>
+
+    <com.hsi.madminutemath.views.RobotoTextView
+        android:id="@+id/answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/mathRelative"
+        android:layout_below="@id/mathRelative"
+        android:gravity="right"
+        android:paddingRight="5dp"
+        android:text=""
+        android:textSize="80sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:id="@+id/grid"
+     >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                    android:weightSum="3"
+            
+            android:orientation="horizontal">
+
+        <com.hsi.madminutemath.views.RobotoButton 
+            android:onClick="one"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:textSize="50sp"
+            android:text="  1  " />
+
+        <com.hsi.madminutemath.views.RobotoButton 
+            android:onClick="two"
+                        android:layout_width="0dp"
+            android:layout_height="140dp"
+                        android:layout_weight="1"
+            
+                        android:textSize="50sp"
+            
+            android:text="  2  " />
+
+        <com.hsi.madminutemath.views.RobotoButton 
+            android:onClick="three"
+                        android:layout_weight="1"
+            
+                        android:layout_width="0dp"
+            android:layout_height="140dp"
+            
+                        android:textSize="50sp"
+            
+            android:text="  3  " />
+</LinearLayout>
+   <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                    android:weightSum="3"
+            
+            android:orientation="horizontal">
+        <com.hsi.madminutemath.views.RobotoButton 
+            android:onClick="four"
+                                    android:layout_weight="1"
+            
+            android:layout_height="140dp"
+            
+                        android:textSize="50sp"
+                    android:layout_width="0dp"
+            
+            android:text="  4  " />
+
+        <com.hsi.madminutemath.views.RobotoButton 
+            android:layout_height="140dp"
+            
+            android:onClick="five"
+                        android:textSize="50sp"
+                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+            
+            android:text="  5  " />
+
+        <com.hsi.madminutemath.views.RobotoButton 
+            android:layout_height="140dp"
+                                    android:layout_weight="1"
+            
+            android:onClick="six"
+                        android:textSize="50sp"
+                    android:layout_width="0dp"
+            
+            android:text="  6  " />
+</LinearLayout>
+ <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                    android:weightSum="3"
+            
+            android:orientation="horizontal">
+        <com.hsi.madminutemath.views.RobotoButton 
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+                                    android:layout_weight="1"
+            
+            android:onClick="seven"
+                        android:textSize="50sp"
+            android:text="  7  " />
+
+        <com.hsi.madminutemath.views.RobotoButton 
+            android:onClick="eight"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+                                    android:layout_weight="1"
+
+                        android:textSize="50sp"
+            android:text="  8  " />
+
+        <com.hsi.madminutemath.views.RobotoButton 
+            android:onClick="nine"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+                                    android:layout_weight="1"
+
+                        android:textSize="50sp"
+            android:text="  9  " />
+</LinearLayout>
+ <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                    android:weightSum="3"
+            
+            android:orientation="horizontal">
+        <com.hsi.madminutemath.views.RobotoButton 
+            android:onClick="clear"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+                                    android:layout_weight="1"
+
+                        android:textSize="50sp"
+            android:text="Clear" />
+
+        <com.hsi.madminutemath.views.RobotoButton 
+            android:onClick="zero"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+                                    android:layout_weight="1"
+
+                        android:textSize="50sp"
+            android:text="  0  " />
+
+        <com.hsi.madminutemath.views.RobotoButton 
+            android:onClick="enter"
+                        android:textSize="50sp"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+                                    android:layout_weight="1"
+
+            android:text="Enter" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
